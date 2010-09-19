@@ -19,7 +19,13 @@
       return "<" + name + attrs + ">" + content + "</" + name + ">"
 		}
 	}
+	$.t = function() {
+		return $($.tag(arguments[0], arguments[1], arguments[2], arguments[3]))
+	}
 	$.tag = function() {
+		if (!$.isEmptyObject)
+			$.error( 'jQuery 1.4.2 is needed for $.tag' );
+		
 		if (arguments.length > 4 || arguments.length < 1) {
 			return ""
 		};
