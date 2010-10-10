@@ -32,7 +32,7 @@
 		var tag_type = arguments[0]
 		var content = typeof(arguments[1]) == "string" ? arguments[1] : ""
 		var opts = typeof(arguments[2]) == "object" ? arguments[2] : (typeof(arguments[1]) == "object" ? arguments[1] : {})
-		var block = $.isFunction(arguments[3]) ? arguments[3] : ($.isFunction(arguments[2]) ? arguments[2] : undefined)
+		var block = $.isFunction(arguments[3]) ? arguments[3] : ($.isFunction(arguments[2]) ? arguments[2] :  ($.isFunction(arguments[1]) ? arguments[1] : undefined))
 		if (block != undefined) {
 			content += block.call()
 		};
