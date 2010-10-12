@@ -1,20 +1,27 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE HTML>
+<html lang="en-US">
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 	<title>Test Easy HTML Jquery Plugin</title>
-	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js' type='text/javascript'></script>
-	<script src="jquery.easy_html.js" type="text/javascript" charset="utf-8"></script>
-	
 </head>
-
-
-<html>
-	<body id="test" onload="">
-		<div id="top">
-			<h1>This is the Title</h1>
-			<h3>Subtitle</h3>
-		</div>
-		
-	</body>
+<body>
+	<div id="top">
+    <h1>This is the Title</h1>
+    <h3>Subtitle</h3>
+  </div>
+	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js' type='text/javascript'></script>
+	<script src="jquery.easy_html_tags.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    jQuery(function ($) {
+      var items = [
+        $.tag("li"),
+        $.tag("li", "some content"),
+        $.tag("li", { 'class': "my_class", id: "special_id", 'title' : 'A "Beautiful" day & breakfast'}),
+        $.tag("li", "some content", { 'class': "my_class", id: "special_id", 'title' : 'A "Beautiful" day & breakfast'}),
+        $.tag("li", "some content", { class: "my_class", id: "special_id"}, function() { return $.tag("span", "some extra stuff")}),
+      ];
+      $('#top').append($.tag('ul', items.join("\n")));
+    })
+  </script>
+</body>
 </html>
